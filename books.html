@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Collection</title>
+</head>
+<body>
+  <h2>Check Console Output</h2>
+  <script>
+    // Load JSON data
+    fetch("books.json")
+      .then(response => response.json())
+      .then(data => {
+        // (a) Title of the first book
+        console.log("Title of the first book:", data.books[0].title);
+
+        // (b) Author of the second book
+        console.log("Author of the second book:", data.books[1].author);
+
+        // (c) Genres of all books
+        console.log("Genres of all books:");
+        data.books.forEach(book => {
+          console.log(book.title + ": " + book.genres.join(", "));
+        });
+      })
+      .catch(error => console.error("Error loading JSON:", error));
+  </script>
+</body>
+</html>
