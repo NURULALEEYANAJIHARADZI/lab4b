@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Book Collection</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection</title>
 </head>
 <body>
-  <h2>Check Console Output</h2>
-  <script>
-    // Load JSON data
-    fetch("books.json")
-      .then(response => response.json())
-      .then(data => {
-        // (a) Title of the first book
-        console.log("Title of the first book:", data.books[0].title);
+    <script>
+    // JSON-like data stored in a JavaScript object
+    const bookData = {
+        "books": [
+            {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "publicationYear": 1925,
+            "genres": ["Fiction", "Classics"]
+        },
+        {
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee",
+            "publicationYear": 1960,
+            "genres": ["Fiction", "Coming-of-Age"]
+        }
+      ]
+    };
 
-        // (b) Author of the second book
-        console.log("Author of the second book:", data.books[1].author);
+    // (a) The title of the first book
+    console.log("Title of the first book:", bookData.books[0].title);
 
-        // (c) Genres of all books
-        console.log("Genres of all books:");
-        data.books.forEach(book => {
-          console.log(book.title + ": " + book.genres.join(", "));
-        });
-      })
-      .catch(error => console.error("Error loading JSON:", error));
+    // (b) The author of the second book
+    console.log("Author of the second book:", bookData.books[1].author);
+
+    // (c) The genres of all books
+    console.log("Genres of all books:");
+    bookData.books.forEach(book => {
+        console.log(book.title + ": " + book.genres.join(", "));
+    });
   </script>
 </body>
 </html>
